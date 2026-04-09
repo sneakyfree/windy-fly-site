@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-windy-darker text-gray-100;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-windy-sky via-windy-electric to-windy-cyan;
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-br from-windy-dark via-windy-darker to-black;
+  }
+}
+
+/* Gradient mesh background */
+.gradient-mesh {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(56, 189, 248, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(6, 182, 212, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(14, 165, 233, 0.05) 0%, transparent 50%);
+}
+
+/* CTA glow pulse */
+.cta-glow {
+  animation: glow-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(56, 189, 248, 0.3), 0 0 60px rgba(56, 189, 248, 0.1); }
+  50% { box-shadow: 0 0 30px rgba(56, 189, 248, 0.5), 0 0 80px rgba(56, 189, 248, 0.2); }
+}
+
+/* Subtle card shimmer on hover */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.card-shimmer:hover {
+  background-image: linear-gradient(
+    110deg,
+    transparent 25%,
+    rgba(56, 189, 248, 0.03) 37%,
+    transparent 63%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s ease-in-out;
+}
+
+/* Animated border gradient */
+@keyframes border-rotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Stats counter glow */
+.stat-glow {
+  text-shadow: 0 0 30px rgba(56, 189, 248, 0.4);
+}
+
+/* Early access badge shimmer */
+@keyframes badge-shimmer {
+  0% { background-position: -100% center; }
+  100% { background-position: 200% center; }
+}
+
+.badge-shimmer {
+  background-image: linear-gradient(
+    110deg,
+    rgba(56, 189, 248, 0.8) 0%,
+    rgba(6, 182, 212, 1) 45%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(6, 182, 212, 1) 55%,
+    rgba(56, 189, 248, 0.8) 100%
+  );
+  background-size: 200% 100%;
+  animation: badge-shimmer 3s ease-in-out infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Pricing card popular ring */
+.popular-ring {
+  position: relative;
+}
+.popular-ring::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, #38bdf8, #06b6d4, #0ea5e9, #38bdf8);
+  background-size: 300% 300%;
+  animation: border-rotate 4s linear infinite;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+/* Hatch ceremony pulse */
+@keyframes hatch-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+
+.hatch-pulse {
+  animation: hatch-pulse 2s ease-in-out infinite;
+}
+
+/* Typewriter blink */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
