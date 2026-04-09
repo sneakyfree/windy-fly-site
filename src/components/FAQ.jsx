@@ -4,31 +4,43 @@ import { useRef, useState } from 'react';
 const faqs = [
   {
     question: "What is Windy Fly?",
-    answer: "Windy Fly is your personal AI agent — a lifelong companion that remembers every conversation, learns your preferences, and connects to the entire Windy ecosystem. Think of it as a smart assistant that actually knows you and gets better every day."
+    answer: "Windy Fly is your personal AI agent — a lifelong companion that remembers every conversation, learns your preferences, and connects to the entire Windy ecosystem. Think of it as a smart assistant that actually knows you and gets better every day. It can send emails, manage your calendar, search the web, and work on 9 different messaging platforms."
   },
   {
     question: "Is it free?",
-    answer: "Yes! The free tier gives you one agent with 50 messages per day, basic tools, and access to community AI models. You can use it forever without paying. Upgrade to Pro ($14.99/mo) for unlimited messages, premium AI models, and full tool access."
+    answer: "Yes! The free tier gives you one agent with 50 messages per day, basic tools, offline mode, and access to community AI models. You can use it forever without paying. Upgrade to Pro ($14.99/mo) for unlimited messages, premium AI models, cloud backup, and full tool access."
   },
   {
     question: "What can my agent actually do?",
-    answer: "Your agent comes with 17+ built-in tools: check the weather, set reminders, manage to-do lists, read the news, search the web, manage your calendar, do math, convert units, and more. It can also send emails, chat on multiple platforms, and learn new skills over time."
+    answer: "Your agent comes with 17+ built-in tools: check the weather, set reminders, manage to-do lists, read the news, search the web, manage your calendar, do math, convert units, send emails, and more. It can also shape-shift into different personality modes for different tasks, grade itself on performance, and auto-generate correction skills when it makes mistakes."
   },
   {
     question: "How does it remember things?",
-    answer: "Every conversation is stored locally in an encrypted database. Your agent extracts important facts, builds a knowledge graph of what it knows about you, and uses that context in future conversations. The more you talk, the more useful it becomes."
+    answer: "Every conversation is stored in an encrypted local database. Your agent extracts knowledge nodes — people, preferences, facts, beliefs — each with confidence scores and time-awareness. There's even a memory retention slider: set it to 0 for goldfish memory, or 10 for elephant memory. Older, less-relevant memories naturally fade unless reinforced."
+  },
+  {
+    question: "Can I import my ChatGPT conversations?",
+    answer: "Yes! The Soul Import system can read your exported ChatGPT conversations.json and extract personality traits, stated preferences, and personal facts. You preview everything before it's imported, and sensitive data is flagged separately for your review. It also works with other agent platforms like OpenClaw and Hermes."
   },
   {
     question: "Can I talk to it from my phone?",
-    answer: "Absolutely. Your agent works on Telegram, WhatsApp, Discord, Slack, SMS, email, and Windy Chat. Same agent, same memory, same personality — no matter which app you use to reach it."
+    answer: "Absolutely. Your agent works on Telegram, WhatsApp, Discord, Slack, SMS, email, Windy Chat, and the web dashboard. Same agent, same memory, same personality — no matter which app you use to reach it."
   },
   {
     question: "Is my data private?",
-    answer: "Your data stays on your machine by default. Memory is stored in a local encrypted database. If you enable cloud backup (Pro feature), your data is encrypted before it leaves your device and stored on Windy Cloud. We never train on your data. You own everything."
+    answer: "Your data stays on your machine by default in an encrypted SQLite database. If you enable cloud backup (Pro feature), your data is encrypted client-side before it leaves your device and stored on Windy Cloud with zero-knowledge architecture. We never train on your data. You own everything."
   },
   {
     question: "What's the difference between Windy Fly and ChatGPT?",
-    answer: "ChatGPT is a conversation tool — you open it, ask a question, and close it. Windy Fly is a persistent companion. It remembers everything, has a real identity, connects to your email, chat, and cloud, works on every messaging platform, and improves from its mistakes. ChatGPT is a tool. Windy Fly is yours."
+    answer: "ChatGPT is a conversation tool — you open it, ask a question, and close it. Windy Fly is a persistent companion. It remembers everything, has a verified identity, connects to your email and chat, works on every messaging platform, improves from its mistakes, adapts to your emotions, grades itself weekly, and checks in with you proactively. ChatGPT is a tool. Windy Fly is yours."
+  },
+  {
+    question: "How much does it cost to run?",
+    answer: "That's entirely up to you. The free tier uses community models at zero cost. On Pro, you bring your own API keys — the dashboard tracks every cent across 12+ AI providers with per-model breakdowns. Set daily and monthly budgets, and your agent enforces them automatically. Most users spend $0.30-$1.00/day. You can also use a Claude Max subscription for unlimited usage."
+  },
+  {
+    question: "What happens if I lose internet?",
+    answer: "Your agent detects the outage, switches to a local AI model (Ollama), and keeps working. Messages are queued atomically and replayed through the full agent pipeline when connectivity returns. You won't even notice the interruption."
   }
 ];
 
@@ -40,7 +52,7 @@ function FAQItem({ faq, index }) {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-30px" }}
-      transition={{ duration: 0.4, delay: index * 0.08 }}
+      transition={{ duration: 0.4, delay: index * 0.06 }}
       className="border border-windy-sky/10 rounded-xl overflow-hidden hover:border-windy-sky/20 transition-colors duration-300"
     >
       <button

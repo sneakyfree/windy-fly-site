@@ -125,3 +125,37 @@
 .cursor-blink {
   animation: blink 1s step-end infinite;
 }
+
+/* Personality slider styling */
+.slider-sky {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #030712;
+  border-radius: 9999px;
+}
+
+.slider-sky::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+  transition: box-shadow 0.2s;
+}
+
+.slider-sky::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.6);
+}
+
+.slider-sky::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+}

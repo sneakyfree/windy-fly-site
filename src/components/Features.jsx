@@ -5,32 +5,38 @@ const features = [
   {
     icon: "🧠",
     title: "Remembers Everything",
-    description: "Every conversation becomes knowledge. Your agent builds a growing understanding of who you are, what you need, and how you like things done."
-  },
-  {
-    icon: "🔗",
-    title: "Born Connected",
-    description: "On hatch, your agent gets a chat account, email inbox, and verified identity. No configuration, no setup wizards. It just works."
-  },
-  {
-    icon: "🎛️",
-    title: "Your Personality, Your Rules",
-    description: "10 personality sliders — humor, warmth, autonomy, formality. Tune exactly how your agent thinks, speaks, and acts."
-  },
-  {
-    icon: "🛠️",
-    title: "17+ Built-In Tools",
-    description: "Weather, reminders, to-dos, news, web search, calendar, and more. Your agent can actually do things, not just talk about them."
-  },
-  {
-    icon: "📱",
-    title: "Works Everywhere",
-    description: "Terminal, phone, browser, Telegram, Discord, Slack, WhatsApp, SMS, email. One agent across every channel you use."
+    description: "Every conversation becomes searchable knowledge. Your agent builds a graph of who you are — people, preferences, facts, beliefs — with confidence scores and time-awareness.",
+    detail: "847 memories and counting"
   },
   {
     icon: "🔄",
     title: "Never Wrong Twice",
-    description: "Correct your agent once and it logs the mistake, creates a correction skill, and improves. It gets smarter every single day."
+    description: "Correct your agent once and it detects the fault type, logs the root cause, and auto-generates a correction skill. Recurring mistakes trigger re-training. It literally writes code to fix itself.",
+    detail: "4 fault categories, auto-correction"
+  },
+  {
+    icon: "💙",
+    title: "Reads the Room",
+    description: "Detects stress, excitement, and frustration from your messages. When you're stressed, it gets concise and supportive. When you're excited, it matches your energy. It even writes journal entries about your shared moments.",
+    detail: "Emotional intelligence built in"
+  },
+  {
+    icon: "🎭",
+    title: "Shape-Shifts for Tasks",
+    description: "Need a coder? A researcher? A friend? Your agent temporarily reconfigures its personality for the task — keeping all your memories — then snaps back. Half the cost of spawning a separate AI.",
+    detail: "8 presets, instant switching"
+  },
+  {
+    icon: "📱",
+    title: "Works Everywhere",
+    description: "Terminal, phone, Telegram, Discord, Slack, WhatsApp, SMS, email, and Windy Chat. One agent, one memory, one personality — no matter which app you use to reach it.",
+    detail: "9 channels, same brain"
+  },
+  {
+    icon: "📡",
+    title: "Works Offline",
+    description: "Lost internet? Your agent detects the outage, switches to a local AI model, queues your messages, and replays everything when connectivity returns. No interruption.",
+    detail: "Local Ollama fallback"
   }
 ];
 
@@ -49,10 +55,11 @@ export default function Features() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            An AI That Actually <span className="gradient-text">Knows You</span>
+            Not a Chatbot. <span className="gradient-text">A Companion.</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Not another chatbot. A lifelong companion that remembers, learns, and connects to everything in your digital life.
+            It remembers, learns, feels, adapts, and improves — every single day.
+            Here's what makes Windy Fly different from everything else.
           </p>
         </motion.div>
 
@@ -68,7 +75,11 @@ export default function Features() {
             >
               <div className="text-4xl mb-4">{feature.icon}</div>
               <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
-              <p className="text-gray-400 leading-relaxed">{feature.description}</p>
+              <p className="text-gray-400 leading-relaxed mb-4">{feature.description}</p>
+              <div className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 bg-windy-sky rounded-full"></div>
+                <span className="text-xs text-windy-sky/70">{feature.detail}</span>
+              </div>
             </motion.div>
           ))}
         </div>
